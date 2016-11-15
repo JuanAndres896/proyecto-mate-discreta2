@@ -7,14 +7,17 @@
 * Main.java: En donde se manda a llamar la interfaz grafica (rejilla) y se visualiza la ejecucion del algoritmo
 */
 // Librerias
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 public class Main {
     public static void main(String[] args){
         JFrame ventana = new JFrame();
-        ventana.setSize(900,900);
+        ventana.setLayout(new BorderLayout());
         ventana.setLocationRelativeTo(null);
+        ventana.add(new Rejilla(), BorderLayout.CENTER);
+        ventana.setSize(640,640);
         ventana.setVisible(true);
-        ventana.add(new Rejilla());
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

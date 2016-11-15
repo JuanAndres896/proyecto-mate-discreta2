@@ -18,12 +18,21 @@ public class MapaMain extends Map{
     public MapaMain(int w, int h){
         super(w,h);
         obstaculo = new boolean[w][h];
+        MazeReader mazeReader = new MazeReader();
+        mazeReader.convertToMatriz(w,h);
+        int[][] laberinto = mazeReader.matriz;
         
         Random ranInt = new Random();
         // Colocar obstaculo en coordenada al azar
         for(int i =0; i<w;i++){
             for(int j=0; j<h; j++){
-                obstaculo[i][j] = (Math.abs(ranInt.nextInt(100)) < PROBABILIDAD_OBSTACULO) ? true : false;
+                //obstaculo[i][j] = (Math.abs(ranInt.nextInt(100)) < PROBABILIDAD_OBSTACULO) ? true : false;
+                if (laberinto[i][j]==1){
+                    obstaculo[i][j] = true;
+                }
+                else {
+                    obstaculo[i][j]=false;
+                }
             }
         }
      
