@@ -7,7 +7,7 @@
 * MapaMain.java: rejilla de prueba para el algoritmo A*
 */
 // Librerias
-import java.util.Random;
+
 
 public class MapaMain extends Map{
     // Declaracion de variables
@@ -15,14 +15,12 @@ public class MapaMain extends Map{
     private final boolean[][] obstaculo;
     
     // Constructor 
-    public MapaMain(int w, int h){
+    public MapaMain(int w, int h, int[][] matrix){
         super(w,h);
         obstaculo = new boolean[w][h];
-        MazeReader mazeReader = new MazeReader();
-        mazeReader.convertToMatriz(w,h);
-        int[][] laberinto = mazeReader.matriz;
-        
-        Random ranInt = new Random();
+
+        int[][] laberinto = matrix;
+
         // Colocar obstaculo en coordenada al azar
         for(int i =0; i<w;i++){
             for(int j=0; j<h; j++){
@@ -31,7 +29,7 @@ public class MapaMain extends Map{
                     obstaculo[i][j] = true;
                 }
                 else {
-                    obstaculo[i][j]=false;
+                    obstaculo[i][j]= false;
                 }
             }
         }

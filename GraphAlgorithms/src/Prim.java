@@ -12,7 +12,7 @@ public class Prim {
 
 
         // dimensiones del laberinto a generar
-        int r = (rows - 2), c = (colums -2);
+        int r = (rows), c = (colums);
 
         // Se contruye el laberinto con solo paredes
         StringBuilder s = new StringBuilder(c);
@@ -23,7 +23,7 @@ public class Prim {
 
         // se hace un punto de inicio aleatorio
         //Point st = new Point((int)(Math.random() * r), (int)(Math.random() * c), null);
-        Point st = new Point(r-1,0, null);
+        Point st = new Point(0,0, null);
         maz[st.r][st.c] = '5';
 
         // iterate through direct neighbors of node

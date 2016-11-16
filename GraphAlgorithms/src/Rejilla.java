@@ -19,23 +19,30 @@ public class Rejilla extends JPanel{
     // CONSTANTES Y OBJETOS
     private static final long ID = 1L;
     
-    private static final int WIDTH = 25;
-    private static final int HEIGHT = 25;
+    private static final int WIDTH = 27;
+    private static final int HEIGHT = 27;
     
     private static final int ESCALA_X = 20;
     private static final int ESCALA_Y = 20;
+
+    public int [][] laberinto = null;
     
     
-    private final Map map = new MapaMain(WIDTH, HEIGHT);
-    private final Prim prim = new Prim(WIDTH,HEIGHT);
+    public final Map map;
+    //private final Prim prim = new Prim(WIDTH,HEIGHT);
     private final Deque<Integer> path;
     
     // Constructor
     public Rejilla(){
-        AEstrella estrella = new AEstrella(map,10,10,map.width-1,map.height-1);
+        MazeReader mazeReader = new MazeReader();
+        mazeReader.convertToMatriz(WIDTH,HEIGHT);
+        laberinto = mazeReader.matriz;
+        map = new MapaMain(WIDTH, HEIGHT, laberinto );
+        AEstrella estrella = new AEstrella(map,1,1,20,20);
         path = estrella.encontrarRuta() ? estrella.getPath(): new LinkedList<Integer>();
         setSize(ESCALA_X * WIDTH, ESCALA_Y * HEIGHT);
         setVisible(true);
+
     }
     
     private void fillRect(Graphics graphics, int x , int y){
@@ -55,7 +62,7 @@ public class Rejilla extends JPanel{
         }
     }
     
-    // Marcar en verde el camino tomado por el algoritmo
+    // Marcar en rojo el camino tomado por el algoritmo
     private void pintarPath(Graphics graphics){
        graphics.setColor(Color.RED);
        for(Iterator<Integer> i = path.iterator();i.hasNext();){

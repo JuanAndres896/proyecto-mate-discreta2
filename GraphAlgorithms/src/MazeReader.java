@@ -28,18 +28,18 @@ public class MazeReader {
         }
         String temp = "";
         for (int i = 0; i < rawsplited.size(); i++) {
-            if(i != rawsplited.size()-1){temp += rawsplited.get(i) + ",";}
+            if(i != rawsplited.size()){temp += rawsplited.get(i) + ",";}
             else{temp += rawsplited.get(i);}
         }
         superCadena = temp.split(",");
     }
     //metodo que convierte la cadena leida en una matrz del tamanio requerido
     public void convertToMatriz(int rows, int colums){
-        matriz = new int[rows][colums];
+        matriz = new int[rows+10][colums+10];
         //rellenar matriz de ceros
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < colums; j++) {
-                    matriz[i][j] = 0;
+                    matriz[i][j] = 1;
             }
         }
 
