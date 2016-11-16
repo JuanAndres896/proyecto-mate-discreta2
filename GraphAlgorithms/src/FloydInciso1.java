@@ -111,10 +111,11 @@ public class FloydInciso1 {
 		return M;
 	}
         
-        
         public static void ImprimirCamino(int[][] Matrix, int xinicial, int yinicial, int xfinal, int yfinal){
             Stack<Integer> pilaX = new Stack<Integer>();
             Stack<Integer> pilaY = new Stack<Integer>();
+            Stack<Integer> temporalx;
+            Stack<Integer> temporaly;
             pilaX.push(xfinal);
             pilaY.push(yfinal);
             int cInicial=(ancho*yinicial)+xinicial;
@@ -126,14 +127,32 @@ public class FloydInciso1 {
                 pilaY.push(yfinal);
                 pilaX.push(xfinal);
             }
+            temporalx = pilaX;
+            temporaly = pilaY;
             System.out.println("A continuación se muestra el camino a tomar para llegar de una esquina a la otra: ");
             String camino = "";
+            
+            int[][] impresion = new int[alto][ancho];
+           
             while(!pilaY.isEmpty()){
+                impresion[pilaY.peek()][pilaX.peek()]=1;
                 camino += "("+pilaX.pop()+",";
                 camino += pilaY.pop()+") -> ";
             }
+            
             camino = camino.substring(0,camino.length()-3);
             System.out.println(camino);
+            System.out.println("A continuación se muestra el camino. Los números 1 son los que representan el camino tomado:\n");
+             for (int i=0; i<alto; i++){
+                for (int j=0; j<ancho; j++){
+                    if (j==ancho-1){
+                        System.out.print(impresion[i][j]+"\n");
+                    }
+                    else{
+                        System.out.print(impresion[i][j]);
+                    }
+                }
+            }
         }
         
 	public static void printMatrix(int[][] Matrix) {
