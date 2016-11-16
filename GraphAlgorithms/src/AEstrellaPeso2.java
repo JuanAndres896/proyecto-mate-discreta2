@@ -15,8 +15,8 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 /*
 FUNCION DE PESO PARA ESTA CLASE:
-H(m,n) = 2^(m-n)
-V(m,n) = 2^-(m+n)
+H(m,n) = m+n (mod 17)
+V(m,n) = m+n (mod 13)
 */
 public final class AEstrellaPeso2 {
      // CONSTANTES Y OBJETOS
@@ -89,10 +89,10 @@ public final class AEstrellaPeso2 {
      public void setPadre(Node padre){
          this.padre = padre;
          if(padre.x == x){
-             gcost = padre.gcost + Math.pow(2.0, padre.CostoH+padre.CostoV);
+             gcost = padre.gcost + (int)Math.pow(2.0, padre.CostoH+padre.CostoV);
          }
          else if(padre.y == y){
-             gcost = padre.gcost + Math.pow(2.0, -(padre.CostoH+padre.CostoV));
+             gcost = padre.gcost + (int)Math.pow(2.0, -(padre.CostoH+padre.CostoV));
          } else {
              gcost = padre.gcost + COSTO_DIAGONAL;
          }
