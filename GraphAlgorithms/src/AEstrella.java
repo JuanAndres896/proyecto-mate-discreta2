@@ -17,8 +17,8 @@ import java.util.Queue;
 public final class AEstrella {
      // CONSTANTES Y OBJETOS
     private static final Comparador COSTO_CMP = new Comparador();
-    private final int COSTO_VERTICAL = 10;
-    private final int COSTO_HORIZONTAL = 10;
+    private final int COSTO_VERTICAL = 1;
+    private final int COSTO_HORIZONTAL = 2;
     // Costo en diagonal = parte entera de raiz de 2 (distancia euclidiana para funcion de heuristica)
     private final int COSTO_DIAGONAL = 999999999;
             //(int) Math.rint(Math.sqrt((COSTO_VERTICAL * COSTO_VERTICAL) + (COSTO_HORIZONTAL * COSTO_HORIZONTAL)));
@@ -154,8 +154,8 @@ public final class AEstrella {
         int y_2 = nodo.y >= map.height -1 ? map.height -1 : nodo.y+1;
         
         // Revisar vecindad del nodo
-        for (int x =x_1; x <=x_2; ++x){
-            for(int y=y_1; y<=y_2; ++y){
+        for (int x =x_1; x <=x_2; x++){
+            for(int y=y_1; y<=y_2; y++){
                 if (!isClosed(x,y) && map.isWalkable(x,y)){
                     addToOpen(x,y,nodo);
                 }

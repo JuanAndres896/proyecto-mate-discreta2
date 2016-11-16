@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Principal">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="5" left="5" bottom="5" right="5"/>
+    <constraints>
+      <xy x="20" y="20" width="511" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="90763" class="javax.swing.JLabel" binding="lbl1">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Seleccione el ejercicio que desea ver:"/>
+        </properties>
+      </component>
+      <component id="fe6f7" class="javax.swing.JButton" binding="btn1AStar">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ejercicio 1 A (A*)"/>
+        </properties>
+      </component>
+      <component id="7b0ea" class="javax.swing.JButton" binding="btn1bstar">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ejercicio 1 B (A*)"/>
+        </properties>
+      </component>
+      <component id="3b054" class="javax.swing.JButton" binding="btn1cStar">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ejercicio 1 C (A*)"/>
+        </properties>
+      </component>
+      <component id="523ce" class="javax.swing.JButton" binding="btn1dStar">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ejercicio 1 D (A*)"/>
+        </properties>
+      </component>
+      <component id="89b59" class="javax.swing.JButton" binding="btn2Star">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ejercicio 2"/>
+        </properties>
+      </component>
+      <component id="35760" class="javax.swing.JButton" binding="btn1AFloyd">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ejercicio 1 A (Floyd-Warshall)"/>
+        </properties>
+      </component>
+      <component id="cb899" class="javax.swing.JButton" binding="btn1BFloyd">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ejercicio 1 B (Floyd-Warshall)"/>
+        </properties>
+      </component>
+      <component id="f54c0" class="javax.swing.JButton" binding="btn1CFloyd">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ejercicio 1 C (Floyd-Warshall)"/>
+        </properties>
+      </component>
+      <component id="9ae1d" class="javax.swing.JButton" binding="btn1DFloyd">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ejercicio 1 D (Floyd-Warshall)"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

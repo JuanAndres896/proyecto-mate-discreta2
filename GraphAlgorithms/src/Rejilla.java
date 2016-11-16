@@ -38,7 +38,7 @@ public class Rejilla extends JPanel{
         mazeReader.convertToMatriz(WIDTH,HEIGHT);
         laberinto = mazeReader.matriz;
         map = new MapaMain(WIDTH, HEIGHT, laberinto );
-        AEstrella estrella = new AEstrella(map,1,1,20,20);
+        AEstrella estrella = new AEstrella(map,1,25,25,1);
         path = estrella.encontrarRuta() ? estrella.getPath(): new LinkedList<Integer>();
         setSize(ESCALA_X * WIDTH, ESCALA_Y * HEIGHT);
         setVisible(true);
@@ -53,8 +53,8 @@ public class Rejilla extends JPanel{
     private void pintarObstaculos(Graphics graphics){
         graphics.setColor(Color.DARK_GRAY);
         
-        for(int x=0; x<WIDTH; ++x){
-            for(int y=0; y<HEIGHT; ++y){
+        for(int x=0; x<WIDTH; x++){
+            for(int y=0; y<HEIGHT; y++){
                     if(!map.isWalkable(x, y)){
                     fillRect(graphics, x,y);
                 }
