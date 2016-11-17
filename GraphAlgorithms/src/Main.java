@@ -12,11 +12,6 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args){
-        JFrame ventana2 = new JFrame();
-        ventana2.setLayout(new BorderLayout());
-        ventana2.setLocationRelativeTo(null);
-        ventana2.add(new Rejilla4Floyd(".\\FloydFuncionDePeso.txt"), BorderLayout.CENTER);
-        ventana2.setSize(600,600);
-        ventana2.setVisible(true);
+        Principal principal = new Principal();
     }
 }

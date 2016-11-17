@@ -88,5 +88,70 @@ public class Principal extends  JFrame{
                 Coordenadas coordenadas = new Coordenadas();
             }
         });
+        btn1AFloyd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame ventana2 = new JFrame();
+                ventana2.setLayout(new BorderLayout());
+                ventana2.setLocationRelativeTo(null);
+                ventana2.add(new Rejilla4Floyd(".\\FloydInciso2.txt"), BorderLayout.CENTER);
+                ventana2.setSize(600,600);
+                ventana2.setVisible(true);
+            }
+        });
+        btn1BFloyd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame ventana2 = new JFrame();
+                ventana2.setLayout(new BorderLayout());
+                ventana2.setLocationRelativeTo(null);
+                ventana2.add(new Rejilla4Floyd(".\\FloydInciso1.txt"), BorderLayout.CENTER);
+                ventana2.setSize(600,600);
+                ventana2.setVisible(true);
+
+                JFrame ventana = new JFrame();
+                ventana.setLayout(new BorderLayout());
+                ventana.setLocationRelativeTo(null);
+                ventana.add(new Rejilla4Floyd(".\\FloydFuncionDePeso.txt"), BorderLayout.CENTER);
+                ventana.setSize(600,600);
+                ventana.setVisible(true);
+            }
+        });
+        btn1CFloyd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame ventana2 = new JFrame();
+                ventana2.setLayout(new BorderLayout());
+                ventana2.setLocationRelativeTo(null);
+                ventana2.add(new Rejilla4Floyd(".\\FloydInciso3.txt"), BorderLayout.CENTER);
+                ventana2.setSize(600,600);
+                ventana2.setVisible(true);
+            }
+        });
+        btn1DFloyd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame ventana2 = new JFrame();
+                ventana2.setLayout(new BorderLayout());
+                ventana2.setLocationRelativeTo(null);
+                ventana2.add(new Rejilla4Floyd(".\\FloydInciso4.txt"), BorderLayout.CENTER);
+                ventana2.setSize(600,600);
+                ventana2.setVisible(true);
+            }
+        });
+        btn1cStar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                JFrame ventana2 = new JFrame();
+                ventana2.setLayout(new BorderLayout());
+                setTitle("Inciso B, funcion de peso 1");
+                ventana2.setLocationRelativeTo(null);
+                ventana2.add(new RejillaC(".\\blank.txt",1,25,25,1), BorderLayout.CENTER);
+                ventana2.setSize(600,600);
+                ventana2.setVisible(true);
+
+            }
+        });
     }
 }
