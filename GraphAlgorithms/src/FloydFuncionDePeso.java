@@ -4,11 +4,11 @@
 * Juan Andres Garcia - 15046
 * Rodrigo Barrios - 15009
 * Jonnathan Juarez - 15377
-* FloydInciso2.java - Algoritmo de Floyd para ruta mas corta en un grafo
+* Floyd.java - Algoritmo de Floyd para ruta mas corta en un grafo
 * Las aristas horizontales tiene peso 1 y las verticales tienen una función V(m, n) = m + n
 */
 import java.util.Stack;
-public class FloydInciso2 {
+public class FloydFuncionDePeso {
 
 	static int[][] P;   //matriz con los vértices previos
         static final int alto = 25;  //alto de la malla
@@ -25,8 +25,8 @@ public class FloydInciso2 {
 		printMatrix(M);
 		System.out.println("Matriz final de distancias:");*/
                 FloydAlgo(M);
-		/*
-		System.out.println("Matriz de nodos previos");
+		
+		/*System.out.println("Matriz de nodos previos");
 		printMatrix(P);*/
                 System.out.println("La distancia mínima entre las dos esquinas (superior izquierda -> inferior derecha) es de: "+M[0][N-1]+"\n");
                 ImprimirCamino(P,0,0,24,24);
@@ -45,53 +45,53 @@ public class FloydInciso2 {
                         //Si el vértice se encuentra en la primera fila
                         if (i==0){  
                             if (j==0){
-                                M[ancho*(i)+j][ancho*(i)+j+1]=1;    //derecha
-                                M[ancho*(i)+j][ancho*(i+1)+j]=i+j;    //abajo
+                                M[ancho*(i)+j][ancho*(i)+j+1]=(i+j)%17;    //derecha
+                                M[ancho*(i)+j][ancho*(i+1)+j]=(i+j)%13;    //abajo
                             }
                             if (j==ancho-1){
-                                M[ancho*(i)+j][ancho*(i+1)+j]=i+j;    //abajo
-                                M[ancho*(i)+j][ancho*(i)+j-1]=1;    //izquierda
+                                M[ancho*(i)+j][ancho*(i+1)+j]=((i+j)%13);    //abajo
+                                M[ancho*(i)+j][ancho*(i)+j-1]=(i+j)%17;    //izquierda
                             }
                             if(j!=0 && j!=ancho-1){
-                                M[ancho*(i)+j][ancho*(i+1)+j]=i+j;    //abajo
-                                M[ancho*(i)+j][ancho*(i)+j-1]=1;    //izquierda
-                                M[ancho*(i)+j][ancho*(i)+j+1]=1;    //derecha
+                                M[ancho*(i)+j][ancho*(i+1)+j]=((i+j)%13);    //abajo
+                                M[ancho*(i)+j][ancho*(i)+j-1]=(i+j)%17;    //izquierda
+                                M[ancho*(i)+j][ancho*(i)+j+1]=(i+j)%17;    //derecha
                             }
                         }
                         //Si se encuentra en la última fila
                         if (i==alto-1){
                             if (j==0){
-                                M[ancho*(i)+j][ancho*(i-1)+j]=i+j;    //arriba
-                                M[ancho*(i)+j][ancho*(i)+j+1]=1;    //derecha
+                                M[ancho*(i)+j][ancho*(i-1)+j]=(i+j)%13;    //arriba
+                                M[ancho*(i)+j][ancho*(i)+j+1]=(i+j)%17;    //derecha
                             }
                             if (j==ancho-1){
-                                M[ancho*(i)+j][ancho*(i)+j-1]=1;    //izquierda
-                                M[ancho*(i)+j][ancho*(i-1)+j]=i+j;    //arriba
+                                M[ancho*(i)+j][ancho*(i)+j-1]=(i+j)%17;    //izquierda
+                                M[ancho*(i)+j][ancho*(i-1)+j]=(i+j)%13;    //arriba
                             }
                             if(j!=0 && j!=ancho-1){
-                                M[ancho*(i)+j][ancho*(i-1)+j]=i+j;    //arriba
-                                M[ancho*(i)+j][ancho*(i)+j-1]=1;    //izquierda
-                                M[ancho*(i)+j][ancho*(i)+j+1]=1;    //derecha
+                                M[ancho*(i)+j][ancho*(i-1)+j]=(i+j)%13;    //arriba
+                                M[ancho*(i)+j][ancho*(i)+j-1]=(i+j)%17;    //izquierda
+                                M[ancho*(i)+j][ancho*(i)+j+1]=(i+j)%17;    //derecha
                             }
                         }
                         //Si se encuentra en la primera columna
                         if (j==0 && i!=0 && i!=alto-1){
-                            M[ancho*(i)+j][ancho*(i-1)+j]=i+j;    //arriba
-                            M[ancho*(i)+j][ancho*(i+1)+j]=i+j;    //abajo
-                            M[ancho*(i)+j][ancho*(i)+j+1]=1;    //derecha
+                            M[ancho*(i)+j][ancho*(i-1)+j]=(i+j)%13;    //arriba
+                            M[ancho*(i)+j][ancho*(i+1)+j]=(i+j)%13;    //abajo
+                            M[ancho*(i)+j][ancho*(i)+j+1]=(i+j)%17;    //derecha
                         }
                         //Si se encuentra en la última columna                        
                         if (j==ancho-1 && i!=0 && i!=alto-1){
-                            M[ancho*(i)+j][ancho*(i-1)+j]=i+j;    //arriba
-                            M[ancho*(i)+j][ancho*(i+1)+j]=i+j;    //abajo
-                            M[ancho*(i)+j][ancho*(i)+j-1]=1;    //izquierda
+                            M[ancho*(i)+j][ancho*(i-1)+j]=(i+j)%13;    //arriba
+                            M[ancho*(i)+j][ancho*(i+1)+j]=(i+j)%13;    //abajo
+                            M[ancho*(i)+j][ancho*(i)+j-1]=(i+j)%17;    //izquierda
                         }
                         //De lo contrario
                         if (i!=0 && i!=alto-1 && j!=0 & j!=ancho-1){                            
-                            M[ancho*(i)+j][ancho*(i-1)+j]=i+j;    //arriba
-                            M[ancho*(i)+j][ancho*(i+1)+j]=i+j;    //abajo
-                            M[ancho*(i)+j][ancho*(i)+j-1]=1;    //izquierda
-                            M[ancho*(i)+j][ancho*(i)+j+1]=1;    //derecha
+                            M[ancho*(i)+j][ancho*(i-1)+j]=(i+j)%13;    //arriba
+                            M[ancho*(i)+j][ancho*(i+1)+j]=(i+j)%13;    //abajo
+                            M[ancho*(i)+j][ancho*(i)+j-1]=(i+j)%17;    //izquierda
+                            M[ancho*(i)+j][ancho*(i)+j+1]=(i+j)%17;    //derecha
                         }
                         M[ancho*(i)+j][ancho*(i)+j]=0;
                     }

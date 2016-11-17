@@ -4,14 +4,14 @@
 * Juan Andres Garcia - 15046
 * Rodrigo Barrios - 15009
 * Jonnathan Juarez - 15377
-* Floyd.java - Algoritmo de Floyd para ruta mas corta en un grafo
+* FloydInciso1.java - Algoritmo de Floyd para ruta mas corta en un grafo, solo hay aristas horizontales y verticales con costo 1
 */
 import java.util.Stack;
 public class FloydInciso1 {
 
 	static int[][] P;   //matriz con los vértices previos
-        static final int alto = 4;  //alto de la malla
-        static final int ancho = 4; //ancho de la malla
+        static final int alto = 25;  //alto de la malla
+        static final int ancho = 25; //ancho de la malla
 	static final int N = alto*ancho;    //cantidad total de vértices
 
 	public static void main(String[] args) {
@@ -20,14 +20,14 @@ public class FloydInciso1 {
                 //Se llena la matriz de distancias de "infinito" primero
                 M = LlenarMatriz(M);
 		P = new int[N][N];
-		System.out.println("Matriz de distancias inicial:");
+		/*System.out.println("Matriz de distancias inicial:");
 		printMatrix(M);
-		System.out.println("Matriz de distancias final:");
-                printMatrix(FloydAlgo(M));		
-		System.out.println("Matriz de nodos previos final:");
-		printMatrix(P);
-                System.out.println("La distancia mínima entre las dos esquinas es de: "+M[0][N-1]);
-                ImprimirCamino(P,0,0,3,3);
+		System.out.println("Matriz de distancias final:");*/
+                FloydAlgo(M);		
+		/*System.out.println("Matriz de nodos previos final:");
+		printMatrix(P);*/
+                System.out.println("La distancia mínima entre las dos esquinas (superior izquierda -> inferior derecha) es de: "+M[0][N-1]+"\n");
+                ImprimirCamino(P,0,0,24,24);
 	}
         
         public static int[][] LlenarMatriz(int[][] M){
@@ -96,11 +96,16 @@ public class FloydInciso1 {
                 }
                 return M;
         }
-
+        //Algoritmo de Floyd
+        //Parámetro: matriz de distancias iniciales M de tamaño NxN
 	public static int[][] FloydAlgo(int[][] M) {
+                //para todos los nodos
 		for (int k = 0; k < N; k++) {
+                        //para cada fila
 			for (int i = 0; i < N; i++) {
+                                //para cada columna
 				for (int j = 0; j < N; j++) {
+                                        //Si el peso para llegar 
 					if (M[i][k] + M[k][j] < M[i][j]) {
 						M[i][j] = M[i][k] + M[k][j];
 						P[i][j] = k;
@@ -110,7 +115,7 @@ public class FloydInciso1 {
 		}
 		return M;
 	}
-        
+        //Imprime el camino tomado desde un nodo a otro
         public static void ImprimirCamino(int[][] Matrix, int xinicial, int yinicial, int xfinal, int yfinal){
             Stack<Integer> pilaX = new Stack<Integer>();
             Stack<Integer> pilaY = new Stack<Integer>();
@@ -142,14 +147,14 @@ public class FloydInciso1 {
             
             camino = camino.substring(0,camino.length()-3);
             System.out.println(camino);
-            System.out.println("A continuación se muestra el camino. Los números 1 son los que representan el camino tomado:\n");
+            System.out.println("\nA continuación se muestra el camino. Los números 1 son los que representan el camino tomado:\n");
              for (int i=0; i<alto; i++){
                 for (int j=0; j<ancho; j++){
                     if (j==ancho-1){
-                        System.out.print(impresion[i][j]+"\n");
+                        System.out.print(impresion[i][j]+",\n");
                     }
                     else{
-                        System.out.print(impresion[i][j]);
+                        System.out.print(impresion[i][j]+",");
                     }
                 }
             }
