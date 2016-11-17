@@ -7,8 +7,6 @@
 * Rejilla.java: Rejilla de m x n donde se lleva a cabo la ejecucion de los algoritmos
 */
 // Librerias
-import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Deque;
@@ -17,7 +15,7 @@ import java.util.LinkedList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Rejilla4Floyd extends JPanel{
+public class RejillaB2 extends JPanel{
     // CONSTANTES Y OBJETOS
     private static final long ID = 1L;
 
@@ -32,12 +30,12 @@ public class Rejilla4Floyd extends JPanel{
     private final Deque<Integer> path;
 
     // Constructor
-    public Rejilla4Floyd(String archivo, int x_0,int y_0, int x_1, int y_1){
+    public RejillaB2(String archivo, int x_0,int y_0, int x_1, int y_1){
         MazeReader mazeReader = new MazeReader(archivo);
         mazeReader.convertToMatriz(WIDTH,HEIGHT);
         laberinto = mazeReader.matriz;
         map = new MapaMain(WIDTH, HEIGHT, laberinto );
-        AEstrella estrella = new AEstrella(map,x_0,y_0,x_1,y_1);
+        AEstrellaPeso2 estrella = new AEstrellaPeso2(map,x_0,y_0,x_1,y_1);
         path = estrella.encontrarRuta() ? estrella.getPath(): new LinkedList<Integer>();
         setSize(ESCALA_X * WIDTH, ESCALA_Y * HEIGHT);
         setVisible(true);

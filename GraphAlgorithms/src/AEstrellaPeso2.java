@@ -24,7 +24,7 @@ public final class AEstrellaPeso2 {
     private final int COSTO_VERTICAL = 1;
     private final int COSTO_HORIZONTAL = 1;
     // Costo en diagonal = parte entera de raiz de 2 (distancia euclidiana para funcion de heuristica)
-    private final double COSTO_DIAGONAL =9999999.0;
+    private final double COSTO_DIAGONAL = 9999999.0;
     //(int) Math.rint(Math.sqrt((COSTO_VERTICAL * COSTO_VERTICAL) + (COSTO_HORIZONTAL * COSTO_HORIZONTAL)));
     
     private final Map map; // Grafo de entrada

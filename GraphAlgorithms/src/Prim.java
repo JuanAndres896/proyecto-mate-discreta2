@@ -12,7 +12,7 @@ public class Prim {
 
 
         // dimensiones del laberinto a generar
-        int r = (rows), c = (colums);
+        int r = (rows-2), c = (colums-2);
 
         // Se contruye el laberinto con solo paredes
         StringBuilder s = new StringBuilder(c);
@@ -22,9 +22,9 @@ public class Prim {
         for (int x = 0; x < r; x++) maz[x] = s.toString().toCharArray();
 
         // se hace un punto de inicio aleatorio
-        //Point st = new Point((int)(Math.random() * r), (int)(Math.random() * c), null);
-        Point st = new Point(0,0, null);
-        maz[st.r][st.c] = '5';
+        Point st = new Point((int)(Math.random() * r), (int)(Math.random() * c), null);
+        //Point st = new Point(0,0, null);
+        maz[st.r][st.c] = '0';
 
         // iterate through direct neighbors of node
         ArrayList < Point > frontier = new ArrayList < Point > ();
@@ -48,7 +48,7 @@ public class Prim {
             Point cu = frontier.remove((int)(Math.random() * frontier.size()));
             Point op = cu.opposite();
             try {
-                // if both node and its opposite are walls
+                // en caso de que el nodo y la y haya una pared
                 if (maz[cu.r][cu.c] == '1') {
                     if (maz[op.r][op.c] == '1') {
 
@@ -78,7 +78,7 @@ public class Prim {
 
             // if algorithm has resolved, mark end node
             if (frontier.isEmpty())
-                maz[last.r][last.c] = '9';
+                maz[last.r][last.c] = '0';
         }
         String salida = "";
         // guaradar el laberinto en un txt
