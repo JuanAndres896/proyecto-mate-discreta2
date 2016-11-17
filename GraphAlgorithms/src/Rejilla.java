@@ -24,21 +24,18 @@ public class Rejilla extends JPanel{
     
     private static final int ESCALA_X = 20;
     private static final int ESCALA_Y = 20;
-
     public int [][] laberinto = null;
-    
-    
     public final Map map;
     //private final Prim prim = new Prim(WIDTH,HEIGHT);
     private final Deque<Integer> path;
     
     // Constructor
-    public Rejilla(){
-        MazeReader mazeReader = new MazeReader();
+    public Rejilla(String archivo, int x_0,int y_0, int x_1, int y_1){
+        MazeReader mazeReader = new MazeReader(archivo);
         mazeReader.convertToMatriz(WIDTH,HEIGHT);
         laberinto = mazeReader.matriz;
         map = new MapaMain(WIDTH, HEIGHT, laberinto );
-        AEstrella estrella = new AEstrella(map,1,25,25,1);
+        AEstrella estrella = new AEstrella(map,x_0,y_0,x_1,y_1);
         path = estrella.encontrarRuta() ? estrella.getPath(): new LinkedList<Integer>();
         setSize(ESCALA_X * WIDTH, ESCALA_Y * HEIGHT);
         setVisible(true);

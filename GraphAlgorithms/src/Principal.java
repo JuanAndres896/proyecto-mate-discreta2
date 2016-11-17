@@ -31,7 +31,7 @@ public class Principal extends  JFrame{
                 JFrame ventana = new JFrame();
                 ventana.setLayout(new BorderLayout());
                 ventana.setLocationRelativeTo(null);
-                ventana.add(new Rejilla(), BorderLayout.CENTER);
+                ventana.add(new Rejilla(".\\blank.txt",1,25,25,1), BorderLayout.CENTER);
                 ventana.setSize(600,600);
                 ventana.setVisible(true);
             }

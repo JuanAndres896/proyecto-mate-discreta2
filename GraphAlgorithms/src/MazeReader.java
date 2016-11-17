@@ -8,11 +8,13 @@ public class MazeReader {
 
     public ArrayList<String> rawsplited= new ArrayList<String>();
     public String[] superCadena = null;
+    String archivo;
     int[][] matriz;
-    public MazeReader(){
+    public MazeReader(String  archivo){
+        this.archivo = archivo;
         BufferedReader in = null;
         try {
-            in = new BufferedReader(new FileReader(".\\test.txt"));
+            in = new BufferedReader(new FileReader(archivo));
             String read = null;
             while ((read = in.readLine()) != null) {
                 rawsplited.add(read);

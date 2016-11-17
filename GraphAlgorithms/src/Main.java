@@ -12,6 +12,6 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args){
-        Principal mainVentana = new Principal();;
+        Principal mainVentana = new Principal();
     }
 }
