@@ -13,12 +13,5 @@ import java.awt.*;
 public class Main {
     public static void main(String[] args){
         Principal mainVentana = new Principal();;
-        //JFrame ventana = new JFrame();
-        //ventana.setLayout(new BorderLayout());
-        //ventana.setLocationRelativeTo(null);
-        //ventana.add(new Rejilla(), BorderLayout.CENTER);
-        //ventana.setSize(640,640);
-        //ventana.setVisible(true);
-        //Ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

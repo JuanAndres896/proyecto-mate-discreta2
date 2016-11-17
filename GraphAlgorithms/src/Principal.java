@@ -1,4 +1,7 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Alejanddro on 16/11/2016.
@@ -22,5 +25,16 @@ public class Principal extends  JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         pack();
+        btn1AStar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame ventana = new JFrame();
+                ventana.setLayout(new BorderLayout());
+                ventana.setLocationRelativeTo(null);
+                ventana.add(new Rejilla(), BorderLayout.CENTER);
+                ventana.setSize(600,600);
+                ventana.setVisible(true);
+            }
+        });
     }
 }
