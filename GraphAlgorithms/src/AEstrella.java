@@ -20,7 +20,8 @@ public final class AEstrella {
     private final int COSTO_VERTICAL = 1;
     private final int COSTO_HORIZONTAL = 1;
     // Costo en diagonal = parte entera de raiz de 2 (distancia euclidiana para funcion de heuristica)
-    private final double COSTO_DIAGONAL = Math.sqrt(5);
+    private final double COSTO_DIAGONAL1 = Math.sqrt(2);
+    private final double COSTO_DIAGONAL2 = Math.sqrt(2);
     //(int) Math.rint(Math.sqrt((COSTO_VERTICAL * COSTO_VERTICAL) + (COSTO_HORIZONTAL * COSTO_HORIZONTAL)));
     
     private final Map map; // Grafo de entrada
@@ -90,7 +91,7 @@ public final class AEstrella {
          else if(padre.y == y){
              gcost = padre.gcost + COSTO_VERTICAL;
          } else {
-             gcost = padre.gcost + COSTO_DIAGONAL;
+             gcost = padre.gcost + COSTO_DIAGONAL1;
          }
      }
      @Override

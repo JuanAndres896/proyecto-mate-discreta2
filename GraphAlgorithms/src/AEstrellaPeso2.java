@@ -60,7 +60,7 @@ public final class AEstrellaPeso2 {
     class Node{
         final int x;
         final int y; // Coordenadas 'x' y 'y' en rejilla
-        public int CostoH = 1;
+        public int CostoH;
         public int CostoV;
         Node padre;
         double gcost, hcost;
@@ -70,10 +70,13 @@ public final class AEstrellaPeso2 {
             this.CostoV = x+y;
             assert x>=0 && x < map.width : "x= "+x;
             assert y>=0  && y < map.height : "y = "+y;
+            assert CostoH>=0 && CostoH < map.width : "CostoH= "+CostoH;
+            assert CostoV>=0 && CostoV < map.width : "CostoV= "+CostoV;
             
             this.x = x;
             this.y = y;
             this.CostoV = CostoV;
+            this.CostoH = CostoH;
                    
         }
         
@@ -89,10 +92,10 @@ public final class AEstrellaPeso2 {
      public void setPadre(Node padre){
          this.padre = padre;
          if(padre.x == x){
-             gcost = padre.gcost + (int)Math.pow(2.0, padre.CostoH+padre.CostoV);
+             gcost = padre.gcost + (padre.CostoH + padre.CostoV)%(17);
          }
          else if(padre.y == y){
-             gcost = padre.gcost + (int)Math.pow(2.0, -(padre.CostoH+padre.CostoV));
+             gcost = padre.gcost + (padre.CostoH + padre.CostoV)%(13);
          } else {
              gcost = padre.gcost + COSTO_DIAGONAL;
          }
