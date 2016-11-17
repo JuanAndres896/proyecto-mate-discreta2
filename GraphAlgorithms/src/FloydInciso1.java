@@ -99,6 +99,7 @@ public class FloydInciso1 {
         //Algoritmo de Floyd
         //Parámetro: matriz de distancias iniciales M de tamaño NxN
 	public static int[][] FloydAlgo(int[][] M) {
+                int contadorIteraciones=0;
                 //para todos los nodos
 		for (int k = 0; k < N; k++) {
                         //para cada fila
@@ -110,9 +111,13 @@ public class FloydInciso1 {
 						M[i][j] = M[i][k] + M[k][j];
 						P[i][j] = k;
 					}
+                                    contadorIteraciones++;
 				}
+                            contadorIteraciones++;
 			}
+                    contadorIteraciones++;
 		}
+                System.out.println("La cantidad total de iteraciones en el algoritmo de Floyd - Warshal es de: "+contadorIteraciones);
 		return M;
 	}
         //Imprime el camino tomado desde un nodo a otro

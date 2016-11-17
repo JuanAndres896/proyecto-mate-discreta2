@@ -101,20 +101,25 @@ public class FloydFuncionDePeso {
         //Algoritmo de Floyd
         //Parámetro: matriz de distancias iniciales M de tamaño NxN
 	public static int[][] FloydAlgo(int[][] M) {
+                int contadorIteraciones=0;
                 //para todos los nodos
 		for (int k = 0; k < N; k++) {
                         //para cada fila
 			for (int i = 0; i < N; i++) {
                                 //para cada columna
 				for (int j = 0; j < N; j++) {
-                                        //Si hay una mejor distancia
+                                        //Si el peso para llegar 
 					if (M[i][k] + M[k][j] < M[i][j]) {
 						M[i][j] = M[i][k] + M[k][j];
 						P[i][j] = k;
 					}
+                                    contadorIteraciones++;
 				}
+                            contadorIteraciones++;
 			}
+                    contadorIteraciones++;
 		}
+                System.out.println("La cantidad total de iteraciones en el algoritmo de Floyd - Warshal es de: "+contadorIteraciones);
 		return M;
 	}
         
