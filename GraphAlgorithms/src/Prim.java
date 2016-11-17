@@ -34,17 +34,17 @@ public class Prim {
                     continue;
                 try {
                     if (maz[st.r + x][st.c + y] == '0') continue;
-                } catch (Exception e) { // ignore ArrayIndexOutOfBounds
+                } catch (Exception e) { // ignora ArrayIndexOutOfBounds
                     continue;
                 }
-                // add eligible points to frontier
+                // agrega los puntos ddsponibles a la frontera
                 frontier.add(new Point(st.r + x, st.c + y, st));
             }
 
         Point last = null;
         while (!frontier.isEmpty()) {
 
-            // pick current node at random
+            // tomar un nodo rammdomm
             Point cu = frontier.remove((int)(Math.random() * frontier.size()));
             Point op = cu.opposite();
             try {
@@ -52,14 +52,14 @@ public class Prim {
                 if (maz[cu.r][cu.c] == '1') {
                     if (maz[op.r][op.c] == '1') {
 
-                        // open path between the nodes
+                        // abre el camino entre nodos
                         maz[cu.r][cu.c] = '0';
                         maz[op.r][op.c] = '0';
 
-                        // store last node in order to mark it later
+                        // guarda el ultimo nodo almacenado
                         last = op;
 
-                        // iterate through direct neighbors of node, same as earlier
+                        // buscca en los nodos adyacentes
                         for (int x = -1; x <= 1; x++)
                             for (int y = -1; y <= 1; y++) {
                                 if (x == 0 && y == 0 || x != 0 && y != 0)
@@ -73,10 +73,10 @@ public class Prim {
                             }
                     }
                 }
-            } catch (Exception e) { // ignore NullPointer and ArrayIndexOutOfBounds
+            } catch (Exception e) { // ignora NullPointer y ArrayIndexOutOfBounds
             }
 
-            // if algorithm has resolved, mark end node
+            // marca el fin cuando el algoritmo termina
             if (frontier.isEmpty())
                 maz[last.r][last.c] = '0';
         }
@@ -111,7 +111,7 @@ public class Prim {
             c = y;
             parent = p;
         }
-        // compute opposite node given that it is in the other direction from the parent
+        // verifica que los notos esten en la misma direcciond del nodo padre
         public Point opposite() {
             if (this.r.compareTo(parent.r) != 0)
                 return new Point(this.r + this.r.compareTo(parent.r), this.c, this);
@@ -120,4 +120,4 @@ public class Prim {
             return null;
         }
     }
-}
+}`
