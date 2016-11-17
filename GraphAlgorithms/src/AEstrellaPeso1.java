@@ -13,14 +13,18 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
-
-public final class AEstrella {
+/*
+FUNCION DE PESO PARA ESTA CLASE:
+H(m,n) = 1
+V(m,n) = m+n
+*/
+public final class AEstrellaPeso1 {
      // CONSTANTES Y OBJETOS
     private static final Comparador COSTO_CMP = new Comparador();
     private final int COSTO_VERTICAL = 1;
     private final int COSTO_HORIZONTAL = 1;
     // Costo en diagonal = parte entera de raiz de 2 (distancia euclidiana para funcion de heuristica)
-    private final double COSTO_DIAGONAL = Math.sqrt(5);
+    private final double COSTO_DIAGONAL =9999999.0;
     //(int) Math.rint(Math.sqrt((COSTO_VERTICAL * COSTO_VERTICAL) + (COSTO_HORIZONTAL * COSTO_HORIZONTAL)));
     
     private final Map map; // Grafo de entrada
@@ -33,7 +37,7 @@ public final class AEstrella {
     
     // Constructor de A*
     // Recibe un mapa (grafo) coordenadas 'x' y 'y' de origen y de destino 
-    public AEstrella(Map map, int origenX, int origenY, int destinoX, int destinoY){
+    public AEstrellaPeso1(Map map, int origenX, int origenY, int destinoX, int destinoY){
         assert map != null : "map = " + map;
         this.map = map;
         destino = new Node(destinoX, destinoY);
@@ -85,10 +89,10 @@ public final class AEstrella {
      public void setPadre(Node padre){
          this.padre = padre;
          if(padre.x == x){
-             gcost = padre.gcost + COSTO_HORIZONTAL;
+             gcost = padre.gcost + padre.CostoH;
          }
          else if(padre.y == y){
-             gcost = padre.gcost + COSTO_VERTICAL;
+             gcost = padre.gcost + padre.CostoV;
          } else {
              gcost = padre.gcost + COSTO_DIAGONAL;
          }
